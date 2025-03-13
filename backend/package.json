@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "sever.ts",
   "scripts": {
-    "dev": "tsx watch --ignore node_modules src/server.ts"
+    "dev": "tsx watch --env-file=.env --ignore node_modules src/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +15,7 @@
     "@fastify/swagger-ui": "^5.2.2",
     "fastify": "^5.2.1",
     "fastify-type-provider-zod": "^4.0.2",
+    "ioredis": "^5.6.0",
     "zod": "^3.24.2"
   },
   "devDependencies": {
