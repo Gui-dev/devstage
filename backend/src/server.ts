@@ -10,9 +10,9 @@ import {
 } from 'fastify-type-provider-zod'
 
 import { createSubscriptionRoute } from './modules/subscriptions/routes/create-subscription.route'
+import { env } from './shared/config/env'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
-const PORT = Number(process.env.PORT) || 3333
 
 app.setSerializerCompiler(serializerCompiler)
 app.setValidatorCompiler(validatorCompiler)
@@ -35,6 +35,6 @@ app.register(fastifySwaggerUi, {
 
 app.register(createSubscriptionRoute)
 
-app.listen({ port: PORT, host: '0.0.0.0' }, () => {
-  console.log(`HTTP server running on http://localhost:${PORT}`)
+app.listen({ port: env.PORT, host: '0.0.0.0' }, () => {
+  console.log(`HTTP server running on http://localhost:${env.PORT}`)
 })
