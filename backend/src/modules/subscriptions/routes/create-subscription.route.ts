@@ -20,11 +20,12 @@ const createSubscriptionRoute: FastifyPluginAsyncZod = async app => {
       },
     },
     async (request, reply) => {
-      const { name, email } = request.body
+      const { name, email, referrer } = request.body
       const createSubscriptionUseCase = new CreateSubscriptionUseCase()
       const subscriber = await createSubscriptionUseCase.execute({
         name,
         email,
+        referrer_id: referrer,
       })
 
       return reply.status(201).send(subscriber)

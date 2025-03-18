@@ -1,8 +1,11 @@
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 
-import { env } from '../../../shared/config/env'
+import { env } from '@/shared/config/env'
 import { AccessInviteLinkUseCase } from '../use-cases/access-invite-link'
-import { accessInviteLinkValidation } from '../validations/access-invite-link-validation'
+import {
+  accessInviteLinkResponse,
+  accessInviteLinkValidation,
+} from '../validations/access-invite-link-validation'
 
 const accessInviteLinkRoute: FastifyPluginAsyncZod = async app => {
   app.get(
@@ -12,6 +15,9 @@ const accessInviteLinkRoute: FastifyPluginAsyncZod = async app => {
         summary: 'Access invite link and redirects user',
         tags: ['referral'],
         params: accessInviteLinkValidation,
+        response: {
+          302: accessInviteLinkResponse,
+        },
       },
     },
     async (request, reply) => {

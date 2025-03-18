@@ -1,4 +1,4 @@
-import { redis } from '../../../shared/databases/redis/client'
+import { redis } from '@/shared/databases/redis/client'
 
 interface IAccessInviteLinkUseCase {
   subscriber_id: string
