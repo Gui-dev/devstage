@@ -2,9 +2,9 @@ POST http://localhost:3333/subscriptions
 Content-Type: application/json
 
 {
-  "name": "Clark Kent",
-  "email": "clark@email.com",
-  "referrer": "025105a2-389e-4c82-bfdb-5ab439db3e0e"
+  "name": "Lois Lane",
+  "email": "lois@email.com",
+  "referrer": "79a9b855-d4d9-4f74-b524-d0934f29a25e"
 }
 
 ###
@@ -22,3 +22,8 @@ GET http://localhost:3333/subscribers/025105a2-389e-4c82-bfdb-5ab439db3e0e/ranki
 ###
 
 GET http://localhost:3333/subscribers/025105a2-389e-4c82-bfdb-5ab439db3e0e/ranking/position
+
+
+###
+
+GET http://localhost:3333/ranking

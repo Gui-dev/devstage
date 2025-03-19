@@ -11,6 +11,7 @@ import {
 
 import { accessInviteLinkRoute } from './modules/subscriptions/routes/access-invite-link.route'
 import { createSubscriptionRoute } from './modules/subscriptions/routes/create-subscription.route'
+import { getRankingRoute } from './modules/subscriptions/routes/get-ranking.route'
 import { getSubscriberInviteClicksRoute } from './modules/subscriptions/routes/get-subscriber-invite-clicks.route'
 import { getSubscriberInvitesCountRoute } from './modules/subscriptions/routes/get-subscriber-invites-count.route'
 import { getSubscriberRankingPositionRoute } from './modules/subscriptions/routes/get-subscriber-ranking-position.route'
@@ -42,6 +43,7 @@ app.register(accessInviteLinkRoute)
 app.register(getSubscriberInviteClicksRoute)
 app.register(getSubscriberInvitesCountRoute)
 app.register(getSubscriberRankingPositionRoute)
+app.register(getRankingRoute)
 
 app.listen({ port: env.PORT, host: '0.0.0.0' }, () => {
   console.log(`HTTP server running on http://localhost:${env.PORT}`)
