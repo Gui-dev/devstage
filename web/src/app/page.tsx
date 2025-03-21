@@ -1,4 +1,5 @@
 import { Button } from '@/components/button'
+import { IconButton } from '@/components/icon-button'
 import { ArrowRight } from 'lucide-react'
 
 export default function Home() {
@@ -9,6 +10,9 @@ export default function Home() {
         Enviar
         <ArrowRight />
       </Button>
+      <IconButton>
+        <ArrowRight />
+      </IconButton>
     </main>
   )
 }
