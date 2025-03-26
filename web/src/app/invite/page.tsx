@@ -7,6 +7,8 @@ import { Ranking } from '../components/ranking'
 import { Stats } from '../components/stats'
 
 const InvitePage = () => {
+  const inviteLink = 'http://localhost:3000/invite'
+
   return (
     <div className="flex min-h-dvh flex-col items-center justify-between gap-16 md:flex-row">
       <div className="flex w-full max-w-[550px] flex-col gap-10">
@@ -31,7 +33,7 @@ const InvitePage = () => {
             </p>
           </div>
 
-          <InviteLinkInput />
+          <InviteLinkInput inviteLink={inviteLink} />
 
           <Stats />
         </div>
