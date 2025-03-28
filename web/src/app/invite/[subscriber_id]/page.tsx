@@ -42,7 +42,7 @@ const InvitePage = async ({ params }: IInvitePageParams) => {
 
           <InviteLinkInput inviteLink={inviteLink} />
 
-          <Stats />
+          <Stats subscriberId={subscriber_id} />
         </div>
       </div>
 
