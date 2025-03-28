@@ -2,12 +2,19 @@ import Image from 'next/image'
 
 import logo from '@/assets/logo.svg'
 
-import { InviteLinkInput } from '../components/invite-link-input'
-import { Ranking } from '../components/ranking'
-import { Stats } from '../components/stats'
+import { InviteLinkInput } from '@/app/components/invite-link-input'
+import { Ranking } from '@/app/components/ranking'
+import { Stats } from '@/app/components/stats'
 
-const InvitePage = () => {
-  const inviteLink = 'http://localhost:3000/invite'
+interface IInvitePageParams {
+  params: Promise<{
+    subscriber_id: string
+  }>
+}
+
+const InvitePage = async ({ params }: IInvitePageParams) => {
+  const { subscriber_id } = await params
+  const inviteLink = `http://localhost:3333/invites/${subscriber_id}`
 
   return (
     <div className="flex min-h-dvh flex-col items-center justify-between gap-16 md:flex-row">

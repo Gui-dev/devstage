@@ -6,12 +6,16 @@ import { useForm } from 'react-hook-form'
 
 import { Button } from '@/components/button'
 import { InputField, InputIcon, InputRoot } from '@/components/input'
+import { subscribeToEvent } from '@/http/api'
 import {
   type SubscribeFormData,
   subscribeFormValidation,
 } from '@/validations/subscribe-form-validation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 export const SubscriptionForm = () => {
+  const navigation = useRouter()
+  const searchParams = useSearchParams()
   const {
     formState: { errors },
     handleSubmit,
@@ -20,8 +24,15 @@ export const SubscriptionForm = () => {
     resolver: zodResolver(subscribeFormValidation),
   })
 
-  const onSubscribe = ({ name, email }: SubscribeFormData) => {
-    console.log({ name, email })
+  const onSubscribe = async ({ name, email }: SubscribeFormData) => {
+    const referrer = searchParams.get('referrer')
+    const { subscriber_id } = await subscribeToEvent({
+      name,
+      email,
+      referrer,
+    })
+
+    navigation.push(`/invite/${subscriber_id}`)
   }
 
   return (
